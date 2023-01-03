@@ -4,7 +4,7 @@
   <div>{{ flag ? '我是真的' : '我是假的' }}</div>
   <div>{{ flag + 1 }}</div>
   <div v-html="message2"></div>
-  <div v-for="item in Arr">
+  <div v-for="item in Arr" :key="item">
     {{ item.name }}
   </div>
 
