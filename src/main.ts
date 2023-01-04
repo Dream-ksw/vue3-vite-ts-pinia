@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/base.less'
+import Card from './components/Card/Card.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+// 全局组件
+app.component('Card', Card)
+app.mount('#app')

@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
 // 不需要注册 引入即可使用
-import ComponentA from './cpn/ComponentA.vue'
+import ComponentA from '../components/LifeCycle/ComponentA.vue'
 
 const divRef = ref<HTMLDivElement>()
 
