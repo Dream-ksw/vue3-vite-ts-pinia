@@ -28,6 +28,7 @@ const props = defineProps<{
 }>()
 // (2)使用ts定义父组件传来的默认值
 // 需要借助一个函数withDefaults 这个函数只在ts中可以使用
+// withDefaults 第二个参数是给传递过来的数据添加默认值的
 // const props = withDefaults(defineProps<{
 //   name: string,
 //   arr: number[]
