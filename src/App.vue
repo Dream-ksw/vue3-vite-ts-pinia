@@ -1,14 +1,14 @@
 <template>
-  <div class="app">
-    123
+  <div>
+
   </div>
 </template>
 
 <script setup lang="ts">
-
+console.log(import.meta.env);
 
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 
 </style>

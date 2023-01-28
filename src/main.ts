@@ -7,6 +7,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 引入动画
 import 'animate.css'
+// 引入unocss 设置全局css类名
+import 'uno.css'
 
 // (1)全局引入mitt 兄弟间组件传值
 // import mitt from 'mitt'
