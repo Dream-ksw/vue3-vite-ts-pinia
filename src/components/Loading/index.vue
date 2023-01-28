@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineExpose } from 'vue'
+import { ref } from 'vue'
 const isShow = ref<boolean>(false)
 const show = () => isShow.value = true
 const hide = () => isShow.value = false

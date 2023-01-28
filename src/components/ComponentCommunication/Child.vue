@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, reactive, defineExpose } from 'vue'
+import { defineProps, reactive } from 'vue'
 // 1.接收父组件传值 defineProps 不使用ts的方式
 // (1)defineProps 是一个方法 他返回父组件传递过来的所有值
 // (2)defineProps 接收一个对象,对象中可以定义值的类型 默认值以及是否必传
