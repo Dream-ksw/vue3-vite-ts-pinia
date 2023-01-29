@@ -10,6 +10,11 @@ import 'animate.css'
 // 引入unocss 设置全局css类名
 import 'uno.css'
 
+// 引入pinia
+import { createPinia } from 'pinia'
+
+const store = createPinia()
+
 // (1)全局引入mitt 兄弟间组件传值
 // import mitt from 'mitt'
 // const Mit = mitt()
@@ -43,7 +48,6 @@ const app = createApp(App)
 //   }
 // }
 
-
 app.use(Loading)
 type Loading = {
   show: () => void,
@@ -58,5 +62,6 @@ declare module 'vue' {
 // 全局组件
 app.component('Card', Card)
 app.use(ElementPlus)
+app.use(store)
 // app.config.globalProperties.$Bus = Mit
 app.mount('#app')
