@@ -5,26 +5,40 @@
       <!-- <hr> -->
       <!-- pinia解构: {{ current }}---{{ name }} -->
       <!-- <hr> -->
-      actions-user: {{ Test.user }}
-      <hr>
+      <!-- actions-user: {{ Test.user }} -->
+      <!-- <hr> -->
       <!-- getters: {{ Test.newName }} -->
       <!-- <hr> -->
-      stateName: {{ Test.name }}
+      TEST
+      <br>
+      state: {{ Test.name }}
+      <p>
+        <el-button @click="Test.setName">change</el-button>
+      </p>
       <hr>
     </div>
-    <div>
+    <!-- <div>
       change: <el-button @click="change">change</el-button>
       <br>
       reset: <el-button @click="reset">reset</el-button>
-    </div>
+    </div> -->
+
+    <!-- Base -->
+    BASE
+    <p>{{ Base.name }}</p>
+    <p>{{ Base.age }}</p>
+    <el-button size="small" @click="Base.changeName">Change Name</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useTestStore } from './store'
-import { storeToRefs } from 'pinia'
+import { useTestStore, useBaseStore } from './store'
+// import { storeToRefs } from 'pinia'
 
+// 获取实例
 const Test = useTestStore()
+const Base = useBaseStore()
+
 // 修改store中的state数据 方式
 // 1. 直接进行修改 Test.current++
 // 2. 通过$patch()对象方式进行单个属性或者批量修改 Test.$patch({ current: 1000,name: 'coder' })
@@ -40,15 +54,15 @@ const Test = useTestStore()
 // }
 
 // actions 
-const change = () => {
-  Test.setUser()
-}
+// const change = () => {
+//   Test.setUser()
+// }
 
 // pinia中的 API
-const reset = () => {
-  // 重置state中的值
-  Test.$reset()
-}
+// const reset = () => {
+//   // 重置state中的值
+//   Test.$reset()
+// }
 
 </script>
 

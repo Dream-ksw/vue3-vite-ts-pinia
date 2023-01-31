@@ -11,7 +11,7 @@ let result:User = {
   age: 12
 }
 
-const login: ()=>Promise<User> = () => {
+const login = ():Promise<User> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
@@ -30,15 +30,12 @@ export const useTestStore = defineStore(Names.TEST, {
       user: <User>{}
     }
   },
-
-  // computed 修饰一些值
-  // 也可以进行相互调用
+  // computed 修饰一些值 可以进行相互调用
   getters: {
     newName ():string {
       return `$-${this.name}`
     }
   },
-
   // 类似于methods 同步异步都可以做 提交state
   // actions中的方法可以使用this相互进行调用
   actions: {
@@ -59,6 +56,26 @@ export const useTestStore = defineStore(Names.TEST, {
       const res = await login()
       this.user = res
       this.setName()
+    }
+  }
+})
+
+
+export const useBaseStore = defineStore(Names.BASE, {
+  state:() => {
+    return {
+      name: 'coderwhy',
+      age: 18
+    }
+  },
+
+  getters: {
+    
+  },
+
+  actions: {
+    changeName() {
+      this.name = 'hello'
     }
   }
 })
