@@ -1,10 +1,14 @@
 <template>
-  <div></div>
+  <div class="app">
+  </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+
 </script>
 
 <style scoped>
-
+.app {
+  padding: 10px;
+}
 </style>
