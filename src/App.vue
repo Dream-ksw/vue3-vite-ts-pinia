@@ -30,7 +30,7 @@ const originData = [
   { id: '15', name: '小涛', pid: '06', job: '运维工程师' }
 ]
 
-const data: Tree[] = transTree(originData)
+const data = transTree(originData)
 
 
 const defaultProps = {
