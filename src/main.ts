@@ -1,25 +1,29 @@
-import { createApp } from 'vue'
+import { createApp, toRaw, DirectiveBinding } from 'vue'
 import App from './App.vue'
 import './assets/base.less'
+// 注册loading插件
+// import Loading from './components/Loading/index'
 import Card from './components/Card/Card.vue'
 // 引入element
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 引入动画
 import 'animate.css'
+// 引入unocss 设置全局css类名
+import 'uno.css'
+// 注册自定义指令
+import registerDirectives from './directives/index'
+// 注册全局插件mitt
+import mitt from './plugins/mitt'
+// 引入pinia
+import { createPinia } from 'pinia'
+import { piniaPlugin } from './store/persistence'
 
-// (1)全局引入mitt 兄弟间组件传值
-// import mitt from 'mitt'
-// const Mit = mitt()
-// ts声明文件
-// declare module 'vue' {
-//   export interface ComponentCustomProperties {
-//     $Bus: typeof Mit
-//   }
-// }
-
-// 注册loading插件
-import Loading from './components/Loading/index'
+const store = createPinia()
+// pinia持久化
+store.use(piniaPlugin({
+  key: 'pinia'
+}))
 
 const app = createApp(App)
 
@@ -42,19 +46,22 @@ const app = createApp(App)
 // }
 
 
-app.use(Loading)
-type Loading = {
-  show: () => void,
-  hide: () => void
-}
-declare module 'vue' {
-  export interface ComponentCustomProperties {
-    $Loading: Loading
-  }
-}
+// type Loading = {
+//   show: () => void,
+//   hide: () => void
+// }
+// declare module 'vue' {
+//   export interface ComponentCustomProperties {
+//     $Loading: Loading
+//   }
+// }
+// app.use(Loading)
+
+registerDirectives(app)
 
 // 全局组件
 app.component('Card', Card)
 app.use(ElementPlus)
-// app.config.globalProperties.$Bus = Mit
+app.use(store)
+app.use(mitt)
 app.mount('#app')

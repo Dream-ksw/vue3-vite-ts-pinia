@@ -23,7 +23,7 @@ function MyRef<T>(value: T){
         return value
       },
       set(newValue) {
-        if(timer)clearTimeout(timer)
+        clearTimeout(timer)
         timer = setTimeout(() => {
           console.log('触发了')
           timer = null

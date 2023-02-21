@@ -37,8 +37,11 @@ const defaultProps = {
   label: 'name',
   children: 'children'
 }
+
 </script>
 
-<style lang="less" scoped>
-
+<style scoped>
+.app {
+  padding: 10px;
+}
 </style>

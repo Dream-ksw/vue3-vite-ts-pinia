@@ -1,9 +1,13 @@
 <template>
   <div class="app">
-    <el-button style="margin-bottom: 20px" @click="random">random</el-button>
-    <transition-group move-class="move_class" class="wraps" tag="div">
-      <div  v-for="item in list" :key="item.id" class="item">{{ item.number }}</div>
-    </transition-group>
+    <div class="btn">
+      <el-button type="primary" @click="random">Random</el-button>
+    </div>
+    <div class="num"> 
+      <transition-group move-class="move_class" class="wraps" tag="div">
+        <div v-for="item in list" :key="item.id" class="item">{{ item.number }}</div>
+      </transition-group>
+    </div>
   </div>
 </template>
 
@@ -38,18 +42,28 @@ body {
 }
 .app {
   padding: 20px;
+  .btn {
+    text-align: right
+  }
+  .num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .wraps {
   display: flex;
   flex-wrap: wrap;
-  width: calc(25px * 10 - 7px);
+  width: calc(25px * 10  + 30px);
   .item {
     width: 25px;
     height: 25px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2px;
   }
 }
 .move_class {

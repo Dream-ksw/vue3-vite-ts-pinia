@@ -9,7 +9,7 @@ import { getCurrentInstance } from 'vue'
 import Loading from '../components/Loading/index.vue'
 
 const instance = getCurrentInstance()
-instance?.proxy?.$Loading.show()
+// instance?.proxy?.$Loading.show()
 </script>
 
 <style lang="less" scoped>
